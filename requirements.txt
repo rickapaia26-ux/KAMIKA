@@ -1,0 +1,4 @@
+# KAMIKA - Dependencias Python
+# Instalar: pip install -r requirements.txt
+
+yt-dlp>=2024.12.0

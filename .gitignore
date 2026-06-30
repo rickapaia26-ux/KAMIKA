@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# KAMIKA temp folders
+LOADING/
+dev/logs/
+dev/*.log
+
+# OS
+Thumbs.db
+.DS_Store
+Desktop.ini
+
+# Environment
+.env
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Distribution
+dist/
+build/
+*.exe
