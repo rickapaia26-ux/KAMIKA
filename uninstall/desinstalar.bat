@@ -1,13 +1,13 @@
 @echo off
 title KAMIKA - Desinstalar
-chcp 65001 >nul
+chcp 437 >nul
 color 0C
 setlocal enabledelayedexpansion
 
 echo.
-echo  ╔═══════════════════════════════════════════════════════════╗
-echo  ║           KAMIKA - DESINSTALAR                          ║
-echo  ╚═══════════════════════════════════════════════════════════╝
+echo  ============================================================
+echo            KAMIKA - DESINSTALAR
+echo  ============================================================
 echo.
 echo  Este script vai remover o KAMIKA do seu computador.
 echo.
@@ -80,8 +80,8 @@ if /i "!remover_ytdlp!"=="S" (
 )
 
 echo.
-echo  ╔═══════════════════════════════════════════════════════════╗
-echo  ║  KAMIKA desinstalado com sucesso!                        ║
-echo  ╚═══════════════════════════════════════════════════════════╝
+echo  ============================================================
+echo   KAMIKA desinstalado com sucesso!
+echo  ============================================================
 echo.
 pause
