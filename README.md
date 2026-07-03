@@ -68,16 +68,16 @@ The installer will:
 
 ## 📋 Supported Platforms
 
-| Platform | Detection | Method |
-|----------|-----------|--------|
-| YouTube | youtube.com / youtu.be | Direct download |
-| Spotify | spotify.com / open.spotify.com | Search on YouTube |
-| SoundCloud | soundcloud.com | Direct download |
-| Bandcamp | bandcamp.com | Direct download |
-| Deezer | deezer.com | Search on YouTube |
-| Tidal | tidal.com | Search on YouTube |
-| Apple Music | music.apple.com | Search on YouTube |
-| Audiomack | audiomack.com | Direct download |
+| Platform | Detection |
+|----------|-----------|
+| YouTube | youtube.com / youtu.be |
+| Spotify | spotify.com / open.spotify.com |
+| SoundCloud | soundcloud.com |
+| Bandcamp | bandcamp.com |
+| Deezer | deezer.com |
+| Tidal | tidal.com |
+| Apple Music | music.apple.com |
+| Audiomack | audiomack.com |
 
 ---
 
