@@ -5,92 +5,92 @@
 [![GitHub forks](https://img.shields.io/github/forks/rickapaia26-ux/KAMIKA?style=social)](https://github.com/rickapaia26-ux/KAMIKA/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/rickapaia26-ux/KAMIKA)](https://github.com/rickapaia26-ux/KAMIKA/issues)
 
-> **Universal Music & Video Downloader** — Download músicas e vídeos do YouTube, Spotify, SoundCloud, Bandcamp e muito mais!
+> **Universal Music & Video Downloader** — Download music and videos from YouTube, Spotify, SoundCloud, Bandcamp and more!
 
 ---
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🎬 **YouTube** — Vídeos e áudio (MP3, M4A, OPUS)
-- 🟢 **Spotify** — Download de músicas e playlists
-- 🟠 **SoundCloud** — Faixas e playlists completas
-- 🟤 **Bandcamp** — Álbuns e faixas individuais
-- 📋 **Playlists** — Download em massa de playlists completas
-- 🎧 **Qualidade** — Opções de qualidade de áudio/vídeo
-- 📁 **Organização** — Organiza automaticamente por artista/álbum
+- 🎬 **YouTube** — Videos and audio (MP3, M4A, OPUS)
+- 🟢 **Spotify** — Music and playlist downloads
+- 🟠 **SoundCloud** — Tracks and full playlists
+- 🟤 **Bandcamp** — Albums and individual tracks
+- 📋 **Playlists** — Bulk download of complete playlists
+- 🎧 **Quality** — Audio/video quality options
+- 📁 **Organization** — Automatic sorting by artist/album
 
 ---
 
-## 🚀 Instalação
+## 🚀 Installation
 
 `ash
-# Clonar o repositório
+# Clone the repository
 git clone https://github.com/rickapaia26-ux/KAMIKA.git
 
-# Entrar na pasta do projeto
+# Navigate to the project directory
 cd KAMIKA
 
-# Instalar dependências
+# Install dependencies
 pip install -r requirements.txt
 `
 
 ---
 
-## 📖 Uso
+## 📖 Usage
 
 `ash
-# Download de uma música do YouTube
-python kamika.py "URL_DA_MUSICA"
+# Download a song from YouTube
+python kamika.py "SONG_URL"
 
-# Download de uma playlist completa
-python kamika.py --playlist "URL_DA_PLAYLIST"
+# Download a full playlist
+python kamika.py --playlist "PLAYLIST_URL"
 
-# Download em formato específico
-python kamika.py --format mp3 "URL_DA_MUSICA"
+# Download in a specific format
+python kamika.py --format mp3 "SONG_URL"
 
-# Download de alta qualidade
-python kamika.py --quality best "URL_DA_MUSICA"
+# Download in high quality
+python kamika.py --quality best "SONG_URL"
 `
 
 ---
 
-## 📋 Exemplos
+## 📋 Examples
 
-| Comando | Descrição |
-|---------|-----------|
-| python kamika.py "https://youtube.com/watch?v=..." | Download simples |
-| python kamika.py --spotify "https://open.spotify.com/track/..." | Download do Spotify |
-| python kamika.py --playlist "https://youtube.com/playlist?list=..." | Playlist do YouTube |
-| python kamika.py --format flac "URL" | Download em FLAC |
+| Command | Description |
+|---------|-------------|
+| python kamika.py "https://youtube.com/watch?v=..." | Simple download |
+| python kamika.py --spotify "https://open.spotify.com/track/..." | Spotify download |
+| python kamika.py --playlist "https://youtube.com/playlist?list=..." | YouTube playlist |
+| python kamika.py --format flac "URL" | Download in FLAC |
 
 ---
 
-## 🛠️ Requisitos
+## 🛠️ Requirements
 
 - Python 3.8+
 - pip
-- FFmpeg (para processamento de áudio/vídeo)
+- FFmpeg (for audio/video processing)
 
 ---
 
-## 🤝 Contribuir
+## 🤝 Contributing
 
-As contribuições são bem-vindas! 
+Contributions are welcome!
 
-1. Fork o projeto
-2. Cria uma branch (git checkout -b feature/nova-feature)
-3. Commit das tuas alterações (git commit -m 'Adicionar nova feature')
-4. Push para a branch (git push origin feature/nova-feature)
-5. Abre um Pull Request
-
----
-
-## 📄 Licença
-
-Este projeto está licenciado sob a MIT License — vê o ficheiro [LICENSE](LICENSE) para mais detalhes.
+1. Fork the project
+2. Create a branch (git checkout -b feature/new-feature)
+3. Commit your changes (git commit -m 'Add new feature')
+4. Push to the branch (git push origin feature/new-feature)
+5. Open a Pull Request
 
 ---
 
-## ⭐ Suporte
+## 📄 License
 
-Se gostares do projeto, deixe uma ⭐ no GitHub! Ajuda imenso a divulgar o projeto.
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## ⭐ Support
+
+If you like this project, leave a ⭐ on GitHub! It helps a lot to spread the word.
