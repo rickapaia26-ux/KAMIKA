@@ -83,13 +83,6 @@ The installer will:
 | Apple Music | music.apple.com | Search on YouTube |
 | Audiomack | audiomack.com | Direct download |
 
----
-
-## 🛠️ Requirements
-
-- **Python 3.8+**
-- **yt-dlp** — installed automatically by install.bat
-- **ffmpeg** — downloaded automatically by install.bat (optional, needed for MP3 + video cutting)
 
 ---
 
