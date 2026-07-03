@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Downloads (não subir músicas/vídeos baixados)
+downloads/
+output/
+*.mp3
+*.mp4
+*.m4a
+*.flac
+*.wav
+*.opus
+*.webm
+
+# Configuração local
+config.local.json
+*.env
+.env
