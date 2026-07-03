@@ -4,6 +4,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/rickapaia26-ux/KAMIKA?style=social)](https://github.com/rickapaia26-ux/KAMIKA/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/rickapaia26-ux/KAMIKA?style=social)](https://github.com/rickapaia26-ux/KAMIKA/network/members)
 [![GitHub issues](https://img.shields.io/github/issues/rickapaia26-ux/KAMIKA)](https://github.com/rickapaia26-ux/KAMIKA/issues)
+[![GitHub release](https://img.shields.io/github/v/release/rickapaia26-ux/KAMIKA)](https://github.com/rickapaia26-ux/KAMIKA/releases)
 
 > **Universal Music & Video Downloader** — Download music and videos from YouTube, Spotify, SoundCloud, Bandcamp and more!
 
@@ -27,9 +28,12 @@
 
 **One click — everything is set up automatically!**
 
-1. Download or clone this repository
-2. Double-click **install.bat**
-3. Follow the on-screen instructions
+**[⬇️ Download KAMIKA v2.1](https://github.com/rickapaia26-ux/KAMIKA/releases/download/v2.1/KAMIKA-v2.1.zip)**
+
+1. Download the .zip file above
+2. Extract it anywhere
+3. Double-click **install.bat**
+4. Follow the on-screen instructions
 
 The installer will:
 - ✅ Copy files to C:\Users\YOU\KAMIKA\
