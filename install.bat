@@ -1,6 +1,6 @@
 @echo off
 title KAMIKA v2.1 - Installer
-chcp 65001 >nul
+chcp 437 >nul
 setlocal enabledelayedexpansion
 
 REM ============================================================
@@ -15,25 +15,22 @@ set "DEST=%USERPROFILE%\KAMIKA"
 :MENU
 cls
 echo.
-echo  ╔═══════════════════════════════════════════════════════════╗
-echo  ║                                                         ║
-echo  ║              KAMIKA v2.1 - Installer                    ║
-echo  ║                                                         ║
-echo  ╚═══════════════════════════════════════════════════════════╝
+echo  ============================================================
+echo.
+echo               KAMIKA v2.1 - Installer
+echo.
+echo  ============================================================
 echo.
 echo  This installer will:
 echo.
 echo    [1] Install KAMIKA to: %USERPROFILE%\KAMIKA\
-echo    [2] Install yt-dlp (download engine)
-echo    [3] Download ffmpeg (needed for MP3 + video cutting)
-echo    [4] Create Desktop shortcut
-echo    [5] Create "KAMIKA Downloads" folder
+echo    [2] Install Python 3.12 (if not found)
+echo    [3] Install yt-dlp (download engine)
+echo    [4] Download ffmpeg (needed for MP3 + video cutting)
+echo    [5] Create Desktop shortcut
+echo    [6] Create "KAMIKA Downloads" folder
 echo.
-echo  Requirements:
-echo    - Python 3.8+ (https://www.python.org/downloads/)
-echo    - Internet connection (for yt-dlp and ffmpeg)
-echo.
-echo  ═══════════════════════════════════════════════════════════
+echo  ============================================================
 echo.
 choice /c:YN /n /m "  Start installation? (Y/N): "
 if errorlevel 2 exit /b
@@ -41,29 +38,76 @@ if errorlevel 1 goto CHECK_PYTHON
 
 :CHECK_PYTHON
 echo.
-echo  [1/5] Checking Python...
+echo  [1/6] Checking Python...
 where python >nul 2>&1
 if %errorlevel% neq 0 (
     echo.
-    echo  ╔═══════════════════════════════════════════════════════╗
-    echo  ║  [ERROR] Python not found!                          ║
-    echo  ║                                                     ║
-    echo  ║  KAMIKA needs Python to run.                        ║
-    echo  ║  Download it from:                                  ║
-    echo  ║  https://www.python.org/downloads/                  ║
-    echo  ║                                                     ║
-    echo  ║  TIP: Check "Add Python to PATH" during install     ║
-    echo  ╚═══════════════════════════════════════════════════════╝
+    echo  -----------------------------------------------------------
+    echo   Python not found!
     echo.
-    pause
-    exit /b 1
+    echo   KAMIKA needs Python to run.
+    echo   Installing Python 3.12 automatically...
+    echo  -----------------------------------------------------------
+    echo.
+
+    echo  Downloading Python 3.12 installer...
+    curl -L -s -o "%TEMP%\python-installer.exe" "https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe"
+    if %errorlevel% neq 0 (
+        echo.
+        echo  -----------------------------------------------------------
+        echo   [ERROR] Could not download Python installer.
+        echo.
+        echo   Please install Python 3.8+ manually:
+        echo   https://www.python.org/downloads/
+        echo.
+        echo   TIP: Check "Add Python to PATH" during install
+        echo  -----------------------------------------------------------
+        echo.
+        pause
+        exit /b 1
+    )
+
+    echo  Installing Python 3.12 (this may take a minute)...
+    "%TEMP%\python-installer.exe" /quiet InstallAllUsers=0 PrependPath=1 Include_test=0
+    if %errorlevel% neq 0 (
+        echo.
+        echo  -----------------------------------------------------------
+        echo   [ERROR] Python installation failed.
+        echo.
+        echo   Please install Python 3.8+ manually:
+        echo   https://www.python.org/downloads/
+        echo.
+        echo   TIP: Check "Add Python to PATH" during install
+        echo  -----------------------------------------------------------
+        echo.
+        pause
+        exit /b 1
+    )
+
+    REM Refresh PATH to include Python
+    set "PATH=%LOCALAPPDATA%\Programs\Python\Python312;%LOCALAPPDATA%\Programs\Python\Python312\Scripts;%PATH%"
+
+    REM Verify installation
+    where python >nul 2>&1
+    if %errorlevel% neq 0 (
+        echo  [WARNING] Python installed but not found in PATH.
+        echo  You may need to restart your computer.
+        echo  Trying to continue anyway...
+    ) else (
+        echo  [OK] Python 3.12 installed successfully!
+        python --version
+    )
+
+    REM Cleanup installer
+    del "%TEMP%\python-installer.exe" >nul 2>&1
+) else (
+    echo  [OK] Python found.
+    python --version
 )
-echo  [OK] Python found.
-python --version
 
 :INSTALL_DEST
 echo.
-echo  [2/5] Copying files to %DEST%...
+echo  [2/6] Copying files to %DEST%...
 if not exist "%DEST%" mkdir "%DEST%"
 
 REM Copy everything from current folder to destination
@@ -78,23 +122,23 @@ echo  [OK] Files copied.
 
 :INSTALL_PIP
 echo.
-echo  [3/5] Installing yt-dlp (download engine)...
+echo  [3/6] Installing yt-dlp (download engine)...
 pip install yt-dlp --upgrade --quiet
 if %errorlevel% neq 0 (
     echo  [WARNING] Could not install yt-dlp via pip.
     echo  Trying alternative method...
-    
+
     REM Try python -m pip
     python -m pip install yt-dlp --upgrade --quiet
     if %errorlevel% neq 0 (
         echo.
-        echo  ╔═══════════════════════════════════════════════════════╗
-        echo  ║  [WARNING] Could not install yt-dlp                 ║
-        echo  ║                                                     ║
-        echo  ║  KAMIKA will work, but you need yt-dlp to download  ║
-        echo  ║                                                     ║
-        echo  ║  Manual install: pip install yt-dlp                 ║
-        echo  ╚═══════════════════════════════════════════════════════╝
+        echo  -----------------------------------------------------------
+        echo   [WARNING] Could not install yt-dlp
+        echo.
+        echo   KAMIKA will work, but you need yt-dlp to download
+        echo.
+        echo   Manual install: pip install yt-dlp
+        echo  -----------------------------------------------------------
         echo.
         pause
     ) else (
@@ -106,7 +150,7 @@ if %errorlevel% neq 0 (
 
 :DOWNLOAD_FFMPEG
 echo.
-echo  [4/5] Download ffmpeg? (needed for MP3 + video cutting)
+echo  [4/6] Download ffmpeg? (needed for MP3 + video cutting)
 echo.
 choice /c:YN /n /m "  Download ffmpeg.exe automatically? (Y/N): "
 if errorlevel 2 goto SKIP_FFMPEG
@@ -157,7 +201,7 @@ echo.
 
 :CREATE_FOLDERS
 echo.
-echo  [5/5] Creating required folders...
+echo  [5/6] Creating required folders...
 
 REM Downloads folder on Desktop
 if not exist "%USERPROFILE%\Desktop\KAMIKA Downloads" (
@@ -174,7 +218,7 @@ if not exist "%DEST%\dev\logs" (
 
 :CREATE_SHORTCUT
 echo.
-echo  Creating Desktop shortcut...
+echo  [6/6] Creating Desktop shortcut...
 set "VBS_FILE=%TEMP%\kamika_shortcut.vbs"
 
 REM Create shortcut using VBScript (more reliable than PowerShell)
@@ -200,7 +244,7 @@ del "%VBS_FILE%" >nul 2>&1
 
 :CLEANUP
 echo.
-echo  ═══════════════════════════════════════════════════════════
+echo  ============================================================
 echo.
 echo  The installation files are still in:
 echo    %SRC%
@@ -224,11 +268,11 @@ echo  [OK] Temporary files will be deleted shortly.
 :FINISH
 cls
 echo.
-echo  ╔═══════════════════════════════════════════════════════════╗
-echo  ║                                                         ║
-echo  ║           KAMIKA installed successfully!                ║
-echo  ║                                                         ║
-echo  ╚═══════════════════════════════════════════════════════════╝
+echo  ============================================================
+echo.
+echo            KAMIKA installed successfully!
+echo.
+echo  ============================================================
 echo.
 echo  Location:    %USERPROFILE%\KAMIKA\
 echo  Launcher:    %USERPROFILE%\KAMIKA\KAMIKA START.bat
@@ -237,7 +281,7 @@ echo  Downloads:   Desktop \ KAMIKA Downloads
 echo.
 echo  To uninstall: %DEST%\uninstall\desinstalar.bat
 echo.
-echo  ═══════════════════════════════════════════════════════════
+echo  ============================================================
 echo.
 choice /c:YN /n /m "  Start KAMIKA now? (Y/N): "
 if errorlevel 2 exit /b
